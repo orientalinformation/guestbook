@@ -1,0 +1,18 @@
+<footer class="footer">
+	<div class="footer">
+		<div class="" >
+			<div class="container">
+				<div class="copyright">
+					Copyright &copy; <script>document.write(new Date().getFullYear())</script>
+					 <a href="http://haegroup.com">HAE Group</a> - All rights reserved.
+        		</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- js -->
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/customs.js"></script>
+<!-- end js -->
