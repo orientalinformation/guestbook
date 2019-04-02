@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<?php include('includes/head.php');?>
 </head>
-<body class="">
-	<div id="main" class="">
-		<?php include('includes/header.php');?>
-
+<body>
+	<section class="clearfix header">
 		<div class="container">
-			<div id="content" class="row">
-				<article class="page type-page status-publish hentry">
-					<p>Hello Guestbook</p>
-				</article>
-			</div>
+			<!-- HEADER -->
 		</div>
+	</section>
+	<section class="clearfix mainmenu">
+		<div class="container">
+			<?php include('includes/content.php');?>
+		</div>
+	</section>
 
-		<?php include('includes/footer.php'); ?>
-	</div>	
+	<section class="clearfix footer">
+		<div class="container">
+			<!-- FOOTER -->
+		</div>
+	</section>
+	<!-- Scripts -->
+    <?php include('includes/footer.php');?>
 </body>
 </html>
 
