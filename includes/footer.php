@@ -9,5 +9,6 @@
 <!-- js -->
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/toastr.js"></script>
 <script src="/js/customs.js"></script>
 <!-- end js -->

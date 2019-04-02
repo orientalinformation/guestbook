@@ -4,12 +4,18 @@
 	<?php include('includes/head.php');?>
 </head>
 <body>
+	<?php
+		include 'includes/db_connection.php';
+		$connect = OpenConnect();
+		// echo "Connected Successfully";
+		CloseConnect($connect);
+	?>
 	<section class="clearfix header">
 		<div class="container">
 			<!-- HEADER -->
 		</div>
 	</section>
-	<section class="clearfix mainmenu">
+	<section class="clearfix">
 		<div class="container">
 			<?php include('includes/content.php');?>
 		</div>
