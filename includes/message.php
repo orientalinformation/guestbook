@@ -1,5 +1,5 @@
 <?php
-include 'db_connection.php';
+include ('db_connection.php');
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 if (!empty($_POST["authorName"]) && !empty($_POST["messageText"])) {
@@ -11,7 +11,7 @@ if (!empty($_POST["authorName"]) && !empty($_POST["messageText"])) {
 	$sql = "INSERT INTO messages (message, author, start_date) 
 			VALUES ('$message', '$author', '$dateCreate')";
 
-	$connect = OpenConnect();
+	$connect = openConnect();
 		
 	if (mysqli_query($connect, $sql)) {
     	echo json_encode([
@@ -22,7 +22,7 @@ if (!empty($_POST["authorName"]) && !empty($_POST["messageText"])) {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 
-	CloseConnect($connect);
+	closeConnect($connect);
 } else {
 	echo json_encode([
                 'status' => false,

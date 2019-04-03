@@ -1,12 +1,16 @@
-<?php 
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include('includes/head.php');?>
 </head>
 <body>
+	<?php
+		include 'includes/db_connection.php';
+		$connect = OpenConnect();
+		// echo "Connected Successfully";
+		CloseConnect($connect);
+	?>
 	<section class="clearfix header">
 		<div class="container">
 			<!-- HEADER -->
@@ -24,8 +28,7 @@ session_start();
 		</div>
 	</section>
 	<!-- Scripts -->
-    <?php include('includes/footer.php');
-    ?>
+    <?php include('includes/footer.php');?>
 </body>
 </html>
 

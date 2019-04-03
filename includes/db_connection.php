@@ -1,5 +1,5 @@
 <?php
-function OpenConnect()
+function openConnect()
 {
 	$dbhost = "localhost";
 	$dbuser = "root";
@@ -10,7 +10,7 @@ function OpenConnect()
 	return $connect;
 }
  
-function CloseConnect($conn)
+function closeConnect($conn)
 {
  	$conn->close();
 }

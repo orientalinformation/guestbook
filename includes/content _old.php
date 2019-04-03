@@ -1,7 +1,3 @@
-<?php
-include ('messages.php');
-$messages = messages();
-?>
 <div class="row content">
 	<div class="col-sm-3 sidenav">
 		<div class="content-left">
@@ -17,36 +13,106 @@ $messages = messages();
 	</div>
 	<div class="col-sm-9 message">
 		<div class="row">
-			<?php
-				$action = '';
-
-				if (isset($_SESSION["username"])) {
-					$action = '<span class="iaction">
-								<i class="fa fa-pencil"></i>
-								<i class="fa fa-trash-o"></i>
-							</span>';
-				} 
-
-				foreach ($messages as $msg) {
-					echo "
-						<div class='col-sm-6 post'>
-							<p>" .
-								$msg['message'] .
-							"</p>
-							<b>".
-								$msg['author'] .
-							"</b>
-							<div>
-								<span class='htime'>".
-									$msg['start_date']
-								."</span>".
-								$action 
-								."
-							</div>
-						</div>
-					";
-				}
-			?>
+			<!-- <div class="col-sm-6 post">
+				<div class="ibgmessage">
+					<i class="fa fa-quote-left" aria-hidden="true"></i>
+				</div>
+				<div class="bgmessage">
+					<p>
+						Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+					</p>
+					<b>Janie Jones</b>
+					<div>
+						<span class="htime">21st Mar, 2017 at 09:43am</span>
+						<span class="iaction">
+							<i class="fa fa-pencil"></i>
+							<i class="fa fa-trash-o"></i>
+						</span>
+					</div>
+				</div>
+			</div> -->
+			<div class="col-sm-6 post">
+				<p>
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+				</p>
+				<b>Janie Jones</b>
+				<div>
+					<span class="htime">21st Mar, 2017 at 09:43am</span>
+					<?php 
+						if (isset($_SESSION["username"])) {
+							echo '  <span class="iaction">
+										<i class="fa fa-pencil"></i>
+										<i class="fa fa-trash-o"></i>
+									</span>';
+						} 
+					?>
+				</div>
+			</div>
+			<div class="col-sm-6 post">
+				<p>
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+				</p>
+				<b>Janie Jones</b>
+				<div>
+					<span class="htime">21st Mar, 2017 at 09:43am</span>
+					<span class="iaction">
+						<i class="fa fa-pencil"></i>
+						<i class="fa fa-trash-o"></i>
+					</span>
+				</div>
+			</div>
+			<div class="col-sm-6 post">
+				<p>
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+				</p>
+				<b>Janie Jones</b>
+				<div>
+					<span class="htime">21st Mar, 2017 at 09:43am</span>
+					<span class="iaction">
+						<i class="fa fa-pencil"></i>
+						<i class="fa fa-trash-o"></i>
+					</span>
+				</div>
+			</div>
+			<div class="col-sm-6 post">
+				<p>
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+				</p>
+				<b>Janie Jones</b>
+				<div>
+					<span class="htime">21st Mar, 2017 at 09:43am</span>
+					<span class="iaction">
+						<i class="fa fa-pencil"></i>
+						<i class="fa fa-trash-o"></i>
+					</span>
+				</div>
+			</div>
+			<div class="col-sm-6 post">
+				<p>
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+				</p>
+				<b>Janie Jones</b>
+				<div>
+					<span class="htime">21st Mar, 2017 at 09:43am</span>
+					<span class="iaction">
+						<i class="fa fa-pencil"></i>
+						<i class="fa fa-trash-o"></i>
+					</span>
+				</div>
+			</div>
+			<div class="col-sm-6 post">
+				<p>
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut adit aut fugit, sed quia conseguuntur magi dolores eos qui.
+				</p>
+				<b>Janie Jones</b>
+				<div>
+					<span class="htime">21st Mar, 2017 at 09:43am</span>
+					<span class="iaction">
+						<i class="fa fa-pencil"></i>
+						<i class="fa fa-trash-o"></i>
+					</span>
+				</div>
+			</div>
 		</div>
 		<div class="hpagination">
 			<ol>
