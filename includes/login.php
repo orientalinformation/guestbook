@@ -2,7 +2,7 @@
  include 'db_connection.php';
  session_start();
 
-if ($_POST['txtUser'] && $_POST['txtPassword']) {
+if (!empty($_POST['txtUser']) && !empty($_POST['txtPassword'])) {
 	$connect = OpenConnect();
 
 	$username = mysqli_real_escape_string($connect, $_POST['txtUser']);
@@ -23,7 +23,6 @@ if ($_POST['txtUser'] && $_POST['txtPassword']) {
 					                'message' => 'Login successfully'
 					            ]);
             }   else  {  
-                //return false;  
           		echo json_encode([
 					                'status' => false,
 					                'message' => 'Username and password not found'
@@ -35,6 +34,9 @@ if ($_POST['txtUser'] && $_POST['txtPassword']) {
     } 
 
 	CloseConnect($connect);
+} else {
+	echo json_encode(['status' => false,
+		             'message' => 'Username and password required']);
 }
 
 ?>
