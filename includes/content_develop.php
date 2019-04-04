@@ -1,29 +1,6 @@
 <?php
-// include ('messages.php');
-// $messages = messages();
-
-include_once  ('db_connection.php');
-
-$connect = openConnect();
-
-$showRecordPerPage = 6;
-if (isset($_GET['page']) && !empty($_GET['page'])) {
-	$currentPage = $_GET['page'];
-} else {
-	$currentPage = 1;
-}
-
-$startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
-$totalEmpSQL = "SELECT * FROM messages";
-$allEmpResult = mysqli_query($connect, $totalEmpSQL);
-$totalEmployee = mysqli_num_rows($allEmpResult);
-$lastPage = ceil($totalEmployee / $showRecordPerPage);
-$firstPage = 1;
-$nextPage = $currentPage + 1;
-$previousPage = $currentPage - 1;
-$messageSQL = "SELECT * FROM `messages` LIMIT $startFrom, $showRecordPerPage";
-$messages = mysqli_query($connect, $messageSQL);
-
+include ('messages.php');
+$messages = messages();
 ?>
 <div class="row content">
 	<div class="col-sm-3 sidenav">
@@ -47,9 +24,6 @@ $messages = mysqli_query($connect, $messageSQL);
 					$date = $msg['update_date'];
 					if (is_null($date)) $date = $msg['start_date'];
 
-					$timestamp = strtotime($date);
-					$newDate = date('dS F \, Y \a\t h:i a', $timestamp); 
-
 					if (isset($_SESSION["username"])) {
 						$action = "<span class='iaction'>
 									<i class='fa fa-pencil' onClick='showEditMessage($idMessage)'></i>
@@ -67,7 +41,7 @@ $messages = mysqli_query($connect, $messageSQL);
 							"</b>
 							<div>
 								<span class='htime'>".
-									$newDate
+									$date
 								."</span>".
 								$action 
 								."
@@ -79,33 +53,18 @@ $messages = mysqli_query($connect, $messageSQL);
 		</div>
 		<div class="hpagination">
 			<ol>
-				<?php if($currentPage != $firstPage) { ?>
-					<li>
-						<a href="?page=<?php echo $firstPage ?>" tabindex="-1" aria-label="Previous">
-							<i class="fa fa-chevron-left" aria-hidden="true"></i>
-						</a>
-					</li>
-				<?php } ?>
-
-				<?php if($currentPage >= 2) { ?>
-					<li><a  href="?page=<?php echo $previousPage ?>"><?php echo $previousPage ?></a></li>
-				<?php } ?>
-
-				<li><span><?php echo $currentPage ?></span></li>
-
-				<?php if($currentPage != $lastPage) { ?>
-					<li><a href="?page=<?php echo $nextPage ?>"><?php echo $nextPage ?></a></li>
-					<li><a href="?page=<?php echo $lastPage ?>" aria-label="Next">
-						<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-					</li>
-				<?php } ?>
+				<li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><span>3</span></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 			</ol>
 		</div>
 	</div>
 </div>
-<?php 
-closeConnect($connect);
-?>
+
 
 <!-- Model admin -->
 <div class="modal fade" id="adminlogin" tabindex="-1" role="dialog" aria-hidden="true">
