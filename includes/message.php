@@ -3,7 +3,6 @@ include ('db_connection.php');
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 if (!empty($_POST["authorName"]) && !empty($_POST["messageText"])) {
-	die("dfgert");
 	$author = $_POST["authorName"];
 	$message = $_POST["messageText"];
 	$dateCreate = date("Y-m-d H:i:s");
@@ -19,7 +18,7 @@ if (!empty($_POST["authorName"]) && !empty($_POST["messageText"])) {
                 'message' => 'Message successfully'
             ]);
 	} else {
-	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	    echo "Error: " . $sql . "<br>" . mysqli_error($connect);
 	}
 
 	closeConnect($connect);

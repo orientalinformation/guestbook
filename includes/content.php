@@ -18,16 +18,19 @@ $messages = messages();
 	<div class="col-sm-9 message">
 		<div class="row">
 			<?php
-				$action = '';
-
-				if (isset($_SESSION["username"])) {
-					$action = '<span class="iaction">
-								<i class="fa fa-pencil"></i>
-								<i class="fa fa-trash-o"></i>
-							</span>';
-				} 
-
 				foreach ($messages as $msg) {
+					$action = '';
+					$idMessage = $msg['id'];
+					$date = $msg['update_date'];
+					if (is_null($date)) $date = $msg['start_date'];
+
+					if (isset($_SESSION["username"])) {
+						$action = "<span class='iaction'>
+									<i class='fa fa-pencil' onClick='showEditMessage($idMessage)'></i>
+									<i class='fa fa-trash-o' onClick='showDeleteMessage($idMessage)'></i>
+								</span>";
+					}
+
 					echo "
 						<div class='col-sm-6 post'>
 							<p>" .
@@ -38,7 +41,7 @@ $messages = messages();
 							"</b>
 							<div>
 								<span class='htime'>".
-									$msg['start_date']
+									$date
 								."</span>".
 								$action 
 								."
@@ -124,3 +127,35 @@ $messages = messages();
   </div>
 </div>
 <!-- End model message -->
+
+<!-- Model edit message -->
+<div class="modal fade" id="editModelMessage" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form-edit-message">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Author:</label>
+            <input type="text" class="form-control" id="editAuthor" required>
+            <input type="hidden" class="form-control" id="editId">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="editMessage" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btnUpdateMessage">Update message</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End model edit message -->
