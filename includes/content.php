@@ -26,7 +26,7 @@ $messages = mysqli_query($connect, $messageSQL);
 
 ?>
 <div class="row content">
-	<div class="col-sm-3 sidenav">
+	<div class="col-sm-12 col-md-3 sidenav">
 		<div class="content-left">
 			<img src="/images/hae.jpg">
 			<hr>
@@ -38,7 +38,7 @@ $messages = mysqli_query($connect, $messageSQL);
 			<button class="btn btn-light" data-toggle="modal" data-target="#adminlogin">Admin Login</button>
 		</div>
 	</div>
-	<div class="col-sm-9 message">
+	<div class="col-sm-12 col-md-9 message">
 		<div class="row">
 			<?php
 				foreach ($messages as $msg) {

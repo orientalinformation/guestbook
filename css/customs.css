@@ -153,3 +153,9 @@ p {
 .hpagination p.next {
     right: 0;
 }
+
+@media (max-width: 720px) {
+    .position-admin { 
+        padding-top:0
+    }
+}
